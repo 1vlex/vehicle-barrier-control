@@ -43,7 +43,7 @@ pip install -r requirements.txt
 
 ## 🔧 Конфигурация
 
-В `configs/vehicles.yaml` укажите пути и параметры:
+В `config/data.yaml` укажите пути и параметры:
 
 ```yaml
 train: ../data/vehicles_dataset/train/images
