@@ -6,47 +6,39 @@
 
 ## 📂 Структура проекта
 
+```
 vehicle-barrier-control/
-├── .gitignore 
-├── LICENSE # MIT License
-├── README.md 
-├── requirements.txt 
+├── .gitignore                 # шаблон игнорирования Python, моделей и данных
+├── LICENSE                    # MIT License
+├── README.md                  # этот файл
+├── requirements.txt           # список зависимостей
 ├── data/
-│ └── extract_vehicles.py # скрипт подготовки COCO -> YOLO‑датасет
+│   └── extract_vehicles.py    # скрипт подготовки COCO → YOLO‑датасет
 ├── configs/
-│ └── vehicles.yaml # конфиг для обучения YOLOv8
+│   └── vehicles.yaml          # конфиг для обучения YOLOv8
 ├── notebooks/
-│ └── CV-Tracking.ipynb # оригинальный Jupyter‑ноутбук 
+│   └── CV-Tracking.ipynb      # оригинальный Jupyter‑ноутбук (опционально)
 ├── src/
-│ ├── train.py # скрипт обучения модели
-│ ├── validate.py # скрипт валидации модели
-│ └── main.py # демо: детекция + управление шлагбаумом
-
+│   ├── train.py               # скрипт обучения модели
+│   ├── validate.py            # скрипт валидации модели
+│   └── main.py                # демо: детекция + управление шлагбаумом
+└── models/                    # место для сохранённых весов (best.pt)
+```
 
 ---
 
 ## 🚀 Установка
 
-1. **Клонирование репозитория**
+```bash
+git clone https://github.com/1vlex/vehicle-barrier-control.git
+cd vehicle-barrier-control
 
-    ```bash
-    git clone https://github.com/1vlex/vehicle-barrier-control.git
-    cd vehicle-barrier-control
-    ```
+python3 -m venv env
+source env/bin/activate    # Linux/macOS
+env\Scripts\activate       # Windows
 
-2. **Виртуальное окружение** 
-
-    ```bash
-    python3 -m venv env
-    source env/bin/activate    # Linux/macOS
-    env\Scripts\activate       # Windows
-    ```
-
-3. **Установка зависимостей**
-
-    ```bash
-    pip install -r requirements.txt
-    ```
+pip install -r requirements.txt
+```
 
 ---
 
@@ -62,9 +54,11 @@ nc: 1
 names: ['vehicle']
 ```
 
-📈 Подготовка данных
+---
 
-Соберите и конвертируйте COCO‑аннотации:
+## 📈 Подготовка данных
+
+```bash
 # Для train
 python data/extract_vehicles.py \
   --coco-json /path/to/instances_train2017.json \
@@ -76,9 +70,11 @@ python data/extract_vehicles.py \
   --coco-json /path/to/instances_val2017.json \
   --images-dir /path/to/val2017 \
   --output data/vehicles_dataset
+```
 
-В результате получите структуру: 
+Результат:
 
+```
 data/vehicles_dataset/
 ├── train/
 │   ├── images/
@@ -87,9 +83,13 @@ data/vehicles_dataset/
 │   ├── images/
 │   └── labels/
 └── data.yaml
+```
 
-🏋️‍♂️ Обучение
+---
 
+## 🏋️‍♂️ Обучение
+
+```bash
 python src/train.py \
   --data-yaml data/vehicles_dataset/data.yaml \
   --model-type yolov8l.pt \
@@ -97,19 +97,33 @@ python src/train.py \
   --imgsz 540 \
   --batch 16 \
   --device cuda
+```
 
-✅ Валидация
+---
 
+## ✅ Валидация
+
+```bash
 python src/validate.py \
   --data-yaml data/vehicles_dataset/data.yaml \
   --weights runs/detect/vehicles_detection/weights/best.pt \
   --imgsz 640 \
   --batch 16 \
   --device cuda
+```
 
-🎥 Демонстрация (Barrier Control)
+---
+
+## 🎥 Демонстрация (Barrier Control)
+
+```bash
 python src/main.py --video /path/to/your/video.avi
+```
+
 Результат откроет окно с видео, отрисованными рамками, траекториями и текущим состоянием шлагбаума (OPEN/CLOSED).
 
+---
+
+## 📄 Лицензия
 
 Этот проект распространяется под MIT License.
