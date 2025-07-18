@@ -46,11 +46,13 @@ pip install -r requirements.txt
 В `config/data.yaml` укажите пути и параметры:
 
 ```yaml
-train: ../data/vehicles_dataset/train/images
-val:   ../data/vehicles_dataset/val/images
+path: data/vehicles_dataset
+train: train/images
+val: val/images
 
 nc: 1
-names: ['vehicle']
+names:
+  0: vehicle
 ```
 
 ---
@@ -58,17 +60,13 @@ names: ['vehicle']
 ## 📈 Подготовка данных
 
 ```bash
-# Для train
 python data/extract_vehicles.py \
-  --coco-json /path/to/instances_train2017.json \
-  --images-dir /path/to/train2017 \
-  --output data/vehicles_dataset
+  --train-coco-json /path/to/instances_train2017.json \
+  --train-images-dir /path/to/train2017 \
+  --val-coco-json   /path/to/instances_val2017.json \
+  --val-images-dir   /path/to/val2017 \
+  --output           data/vehicles_dataset
 
-# Для val
-python data/extract_vehicles.py \
-  --coco-json /path/to/instances_val2017.json \
-  --images-dir /path/to/val2017 \
-  --output data/vehicles_dataset
 ```
 
 Результат:
