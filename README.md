@@ -86,7 +86,7 @@ data/vehicles_dataset/
 
 ---
 
-## 🏋️‍♂️ Обучение
+## Обучение
 
 ```bash
 python src/train.py \
@@ -100,7 +100,7 @@ python src/train.py \
 
 ---
 
-## ✅ Валидация
+## Валидация
 
 ```bash
 python src/validate.py \
@@ -123,6 +123,6 @@ python src/main.py --video /path/to/your/video.avi
 
 ---
 
-## 📄 Лицензия
+## Лицензия
 
 Этот проект распространяется под MIT License.
