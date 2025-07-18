@@ -103,7 +103,7 @@ python src/train.py \
 ## Валидация
 
 ```bash
-python src/validate.py \
+python src/validation.py \
   --data-yaml data/vehicles_dataset/data.yaml \
   --weights runs/detect/vehicles_detection/weights/best.pt \
   --imgsz 640 \
