@@ -1,6 +1,6 @@
-path: D:\test\vehicles_dataset
-train: train\images
-val: val\images
+path: ../data/vehicles_dataset
+train: images/train
+val: images/val
 names:
   0: vehicle
 nc: 1
