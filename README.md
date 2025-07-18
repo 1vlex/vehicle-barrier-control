@@ -22,6 +22,8 @@ vehicle-barrier-control/
 │   ├── train.py               # скрипт обучения модели
 │   ├── validation.py          # скрипт валидации модели
 │   └── main.py                # демо: детекция + управление шлагбаумом
+├── assets/
+│   └── barrier-demo.gif       # пример работы модели Barrier Control
 ```
 
 ---
