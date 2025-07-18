@@ -16,7 +16,7 @@ vehicle-barrier-control/
 │   └── extract_vehicles.py    # скрипт подготовки COCO → YOLO‑датасет
 ├── configs/
 │   └── data.yaml              # конфиг для обучения YOLOv8
-├── notebooks/
+├── notebook/
 │   └── CV-Tracking.ipynb      # оригинальный Jupyter‑ноутбук (опционально)
 ├── src/
 │   ├── train.py               # скрипт обучения модели
