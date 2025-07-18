@@ -1,0 +1,6 @@
+path: D:\test\vehicles_dataset
+train: train\images
+val: val\images
+names:
+  0: vehicle
+nc: 1
