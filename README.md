@@ -8,21 +8,20 @@
 
 ```
 vehicle-barrier-control/
-├── .gitignore                 # шаблон игнорирования Python, моделей и данных
+├── .gitignore                 
 ├── LICENSE                    # MIT License
-├── README.md                  # этот файл
+├── README.md                  
 ├── requirements.txt           # список зависимостей
 ├── data/
 │   └── extract_vehicles.py    # скрипт подготовки COCO → YOLO‑датасет
 ├── configs/
-│   └── vehicles.yaml          # конфиг для обучения YOLOv8
+│   └── data.yaml              # конфиг для обучения YOLOv8
 ├── notebooks/
 │   └── CV-Tracking.ipynb      # оригинальный Jupyter‑ноутбук (опционально)
 ├── src/
 │   ├── train.py               # скрипт обучения модели
-│   ├── validate.py            # скрипт валидации модели
+│   ├── validation.py          # скрипт валидации модели
 │   └── main.py                # демо: детекция + управление шлагбаумом
-└── models/                    # место для сохранённых весов (best.pt)
 ```
 
 ---
