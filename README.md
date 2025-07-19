@@ -50,13 +50,12 @@ pip install -r requirements.txt
 В `config/data.yaml` укажите пути и параметры:
 
 ```yaml
-path: data/vehicles_dataset
-train: train/images
-val: val/images
-
-nc: 1
+path: ../data/vehicles_dataset
+train: images/train
+val: images/val
 names:
   0: vehicle
+nc: 1
 ```
 
 ---
